@@ -151,146 +151,85 @@
 				</div>
 
 
-		<!-- CONTACT -->
+		<!-- FORM -->
 		<section id="form"> 
 			<header class="text-center mb-60">
 				<div class="heading-title heading-dotted text-center">
 				<h2>FORM</h2>
 				<hr />
 			</header>
-		<!-- CONTACT -->
 
-	<div class="container">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
 
-		<div class="row">
-
-			<!-- FORM -->
-			<div class="col-md-8 col-sm-8">
-
-				<h3>Drop us a line or just say <strong><em>Hello!</em></strong></h3>
-
-				<!-- Alert Success -->
-				<div id="alert_success" class="alert alert-success mb-30">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<strong>Thank You!</strong> Your message successfully sent!
-				</div><!-- /Alert Success -->
-
-
-				<!-- Alert Failed -->
-				<div id="alert_failed" class="alert alert-danger mb-30">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<strong>[SMTP] Error!</strong> Internal server error!
-				</div><!-- /Alert Failed -->
-
-
-				<!-- Alert Mandatory -->
-				<div id="alert_mandatory" class="alert alert-danger mb-30">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
-				</div><!-- /Alert Mandatory -->
-
-
-				<form action="php/contact.php" method="post" enctype="multipart/form-data">
-					<fieldset>
-						<input type="hidden" name="action" value="contact_send" />
-
-						<div class="row">
-								<div class="col-md-4">
-									<label for="contact:name">Full Name *</label>
-									<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
-								</div>
-								<div class="col-md-4">
-									<label for="contact:company">Company Name</label>
-									<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
-								</div>
-								<div class="col-md-4">
-									<label for="contact:real_estate">Real Estate Project Name</label>
-									<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
-								</div>
-								<div class="col-md-4">
-									<label for="contact:email">E-mail Address *</label>
-									<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
-								</div>
-								<div class="col-md-4">
-									<label for="contact:phone">Phone</label>
-									<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
-								</div>
-						</div>
-						<div class="row">
-								<div class="col-md-8">
-									<label for="contact:subject">Subject *</label>
-									<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
-								</div>
-								<div class="col-md-4">
-										<label for="contact_department">Department</label>
-										<select class="form-control pointer" name="contact[department]">
-											<option value="">--- Select ---</option>
-											<option value="Marketing">Marketing</option>
-											<option value="Webdesign">Webdesign</option>
-											<option value="Architecture">Architecture</option>
+						<form action="#" method="post">
+							<fieldset>
+								<label for="buildingType">Your building type :</label>
+								<select name="buildingType" id="buildingType">
+									<option value="residential">Residential</option>
+									<option value="commercial">Commercial</option>
+									<option value="corporative">Corporative</option>
+									<option value="hybrid">Hybrid</option>
 								</select>
-								</div>
-								<div class="col-md-8">
-									<label for="contact:description">Description *</label>
-									<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
-								</div>
 
-						</div>
-						<div class="row">
+								<fieldset id="residential">
+									<legend>Residential informations</legend>
+									
+									<label for="appartementNumber">Number of appartement :</label>
+									<input name="appartementNumber" type="number" id="appartementNumber">
+
+									<label for="floorNumber">Number of floor :</label>
+									<input name="floorNumber" type="number" id="floorNumber">
+
+									<label for="basementNumber">Number of basement :</label>
+									<input name="basementNumber" type="number" id="basementNumber">
+								</fieldset>
+
+								<fieldset id="commercial">
+									<legend>Commercial informations</legend>
+									
+									<label for="commerceDistinctNumber">Number of commerce distinct :</label>
+									<input name="commerceDistinctNumber" type="number" id="commerceDistinctNumber">
+
+									<label for="floorNumber">Number of floor :</label>
+									<input name="floorNumber" type="number" id="floorNumber">
+
+									<label for="basementNumber">Number of basement :</label>
+									<input name="basementNumber" type="number" id="basementNumber">
+
+									<label for="parkingSpaceNumber">Number of parking space :</label>
+									<input name="parkingSpaceNumber" type="number" id="parkingSpaceNumber">
+
+									<label for="elevatorToDeployNumber">Number of elevator to deploy :</label>
+									<input name="elevatorToDeployNumber" type="number" id="elevatorToDeployNumber">
+								</fieldset>
+							</fieldset>
+
+							<fieldset id ="corporative">
+								
+							</fieldset>
+
+							<fieldset id="hybrid">
+								
+							</fieldset>
+							
+							<label for="estimatedElevatorToDeploy">Estimated number of elevators cage :</label>
+							<input name="estimatedElevatorToDeploy" type="number" id="estimatedElevatorToDeploy" readonly>
+
+							<div class="row">
 								<div class="col-md-12">
-									<label for="contact:message">Message *</label>
-									<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
+									<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
 								</div>
-						</div>
+							</div>
+						</form>
 
-					</fieldset>
-
-					<div class="row">
-						<div class="col-md-12">
-							<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
-						</div>
 					</div>
-				</form>
-
+					<!-- /FORM -->
+				</div>
 			</div>
-			<!-- /FORM -->
-
-
-			<!-- INFO -->
-			<div class="col-md-4 col-sm-4">
-
-				<!-- 
-				Available heights
-					h-100
-					h-150
-					h-200
-					h-250
-					h-300
-					h-350
-					h-400
-					h-450
-					h-500
-					h-550
-					h-600
-				-->
-				<div id="map2" class="h-400 grayscale"></div>
-
-				<hr />
-
-				<p>
-					<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> Street Name, City Name, Country</span>
-					<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:1800-555-1234">1800-555-1234</a></span>
-					<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:mail@yourdomain.com">mail@yourdomain.com</a></span>
-				</p>
-
-			</div>
-			<!-- /INFO -->
-
-		</div>
-
-	</div>
-</section>
-<!-- /CONTACT -->
+		</section>
+	<!-- /CONTACT -->
 
 
 		<!-- FOOTER -->
@@ -364,7 +303,6 @@
 		<!-- SCROLL TO TOP -->
 		<a href="#" id="toTop"></a>
 
-
 		<!-- PRELOADER -->
 		<div id="preloader">
 			<div class="inner">
@@ -378,5 +316,7 @@
 		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
 		<script src="assets/js/scripts.js"></script>
+
+		<script src="customAssets/js/form.js"></script>
 	</body>
 </html>
