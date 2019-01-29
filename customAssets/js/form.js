@@ -92,6 +92,12 @@ function commercial()
     $("#estimatedElevatorToDeploy").val(elevatorToDeployNumber);
 }
 
+    //  		occupantNumber * (floorNumber + basementNumber) = occupantNumberTotal
+    //          estimatedElevatorToDeply =  occupantNumberTotal / 1000
+    //          (floorNumber + basementNumber) /20 = requiredColum 
+    //            estimatedElevatorToDeploy = elevatorToDeploy / RequiredColum
+
+
 function corporative()
 {
     var occupantNumber = $("#corporative #occupantNumber").val();
@@ -108,7 +114,7 @@ function corporative()
     var requiredColumn = Math.ceil ((basementNumber + floorNumber) / 20)
 
     //Le nombre total d'ascenseurs est déterminé par le nombre de cages d'ascenseurs multiplié par le nombre de colonnes.
-    var estimatedElevatorToDeploy = elevatorToDeployNumber * requiredColumn
+    var estimatedElevatorToDeploy = Math.ceil (elevatorToDeployNumber / requiredColumn)
 
     $("#estimatedElevatorToDeploy").val(estimatedElevatorToDeploy);
 }
@@ -129,7 +135,7 @@ function hybrid()
     var requiredColumn = Math.ceil ((basementNumber + floorNumber) / 20)
 
     //Le nombre total d'ascenseurs est déterminé par le nombre de cages d'ascenseurs multiplié par le nombre de colonnes.
-    var estimatedElevatorToDeploy = elevatorToDeployNumber * requiredColumn
+    var estimatedElevatorToDeploy = Math.ceil (elevatorToDeployNumber / requiredColumn)
 
     $("#estimatedElevatorToDeploy").val(estimatedElevatorToDeploy);
 }
