@@ -150,21 +150,28 @@
 					<!-- /Top Nav -->
 				</div>
 
+				
+				<!-- SECTION TITLE -->
+		<section id="section">
+			<div class="container">
+
+				<header class="text-center clearfix">
+					<h2 class="fw-300 mb-0">Corporative Services</h2>
+				</header`>
+
+			</div>
+		</section>
+		<!-- /SECTION TITLE -->
 
 		<!-- FORM -->
 		<section id="form"> 
-			<header class="text-center mb-60">
-				<div class="heading-title heading-dotted text-center">
-				<h2>FORM</h2>
-				<hr />
-			</header>
 
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 col-sm-12">
 
-						<form action="#" method="post">
-							<fieldset>
+						<form action="#" method="post" class="row">
+							<fieldset class="col-md-6">
 								<label for="buildingType">Your building type :</label>
 								<select name="buildingType" id="buildingType">
 									<option value="residential">Residential</option>
@@ -173,90 +180,110 @@
 									<option value="hybrid">Hybrid</option>
 								</select>
 
+								<hr>
+
 								<fieldset id="residential">
 									<legend>Residential informations</legend>
 									
 									<label for="appartementNumber">Number of appartement :</label>
-									<input name="appartementNumber" type="number" id="appartementNumber">
+									<input name="appartementNumber" type="number" id="appartementNumber" class="form-control">
 
 									<label for="floorNumber">Number of floor :</label>
-									<input name="floorNumber" type="number" id="floorNumber">
+									<input name="floorNumber" type="number" id="floorNumber" class="form-control">
 
 									<label for="basementNumber">Number of basement :</label>
-									<input name="basementNumber" type="number" id="basementNumber">
+									<input name="basementNumber" type="number" id="basementNumber" class="form-control">
 								</fieldset>
 
 								<fieldset id="commercial">
 									<legend>Commercial informations</legend>
 									
 									<label for="commerceDistinctNumber">Number of commerce distinct :</label>
-									<input name="commerceDistinctNumber" type="number" id="commerceDistinctNumber">
+									<input name="commerceDistinctNumber" type="number" id="commerceDistinctNumber" class="form-control">
 
 									<label for="floorNumber">Number of floor :</label>
-									<input name="floorNumber" type="number" id="floorNumber">
+									<input name="floorNumber" type="number" id="floorNumber" class="form-control">
 
 									<label for="basementNumber">Number of basement :</label>
-									<input name="basementNumber" type="number" id="basementNumber">
+									<input name="basementNumber" type="number" id="basementNumber" class="form-control">
 
 									<label for="parkingSpaceNumber">Number of parking space :</label>
-									<input name="parkingSpaceNumber" type="number" id="parkingSpaceNumber">
+									<input name="parkingSpaceNumber" type="number" id="parkingSpaceNumber" class="form-control">
 
 									<label for="elevatorToDeployNumber">Number of elevator to deploy :</label>
-									<input name="elevatorToDeployNumber" type="number" id="elevatorToDeployNumber">
+									<input name="elevatorToDeployNumber" type="number" id="elevatorToDeployNumber" class="form-control">
 								</fieldset>
-							</fieldset>
 
-							<fieldset id ="corporative">
-								<legend>Corporative informations</legend>
+								<fieldset id ="corporative">
+									<legend>Corporative informations</legend>
 
-								<label for="tenant company">Number of tenant company :</label>
-								<input name="tenantCompany" type="number" id="tenantCompany">
+									<label for="tenant company">Number of tenant company :</label>
+									<input name="tenantCompany" type="number" id="tenantCompany" class="form-control">
 
-								<label for="floorNumber">Number of floor :</label>
-								<input name="floorNumber" type="number" id="floorNumber">
+									<label for="floorNumber">Number of floor :</label>
+									<input name="floorNumber" type="number" id="floorNumber" class="form-control">
 
-								<label for="basementNumber">Number of basement :</label>
-								<input name="basementNumber" type="number" id="basementNumber">
+									<label for="basementNumber">Number of basement :</label>
+									<input name="basementNumber" type="number" id="basementNumber" class="form-control">
 
-								<label for="parkingSpaceNumber">Number of parking space :</label>
-								<input name="parkingSpaceNumber" type="number" id="parkingSpaceNumber">
+									<label for="parkingSpaceNumber">Number of parking space :</label>
+									<input name="parkingSpaceNumber" type="number" id="parkingSpaceNumber" class="form-control">
 
-								<label for="occupantNumber">Maximum occupant per floor :</label>
-								<input name="occupantNumber" type="number" id="occupantNumber">
+									<label for="occupantNumber">Maximum occupant per floor :</label>
+									<input name="occupantNumber" type="number" id="occupantNumber" class="form-control">
 
-							</fieldset>
+								</fieldset>
 
-							<fieldset id="hybrid">
-								<legend>Hybrid informations</legend>
+								<fieldset id="hybrid">
+									<legend>Hybrid informations</legend>
 
-								<label for="tenant company">Number of trade market :</label>
-								<input name="tenantCompany" type="number" id="tenantCompany">
+									<label for="tenant company">Number of trade market :</label>
+									<input name="tenantCompany" type="number" id="tenantCompany" class="form-control">
 
-								<label for="floorNumber">Number of floor :</label>
-								<input name="floorNumber" type="number" id="floorNumber">
+									<label for="floorNumber">Number of floor :</label>
+									<input name="floorNumber" type="number" id="floorNumber" class="form-control">
 
-								<label for="basementNumber">Number of basement :</label>
-								<input name="basementNumber" type="number" id="basementNumber">
+									<label for="basementNumber">Number of basement :</label>
+									<input name="basementNumber" type="number" id="basementNumber" class="form-control">
 
-								<label for="parkingSpaceNumber">Number of parking space :</label>
-								<input name="parkingSpaceNumber" type="number" id="parkingSpaceNumber">
+									<label for="parkingSpaceNumber">Number of parking space :</label>
+									<input name="parkingSpaceNumber" type="number" id="parkingSpaceNumber" class="form-control">
 
-								<label for="occupantNumber">Maximum occupant per floor :</label>
-								<input name="occupantNumber" type="number" id="occupantNumber">
+									<label for="occupantNumber">Maximum occupant per floor :</label>
+									<input name="occupantNumber" type="number" id="occupantNumber" class="form-control">
 
-								<label for="activityNumber">Hour of activity :</label>
-								<input name="activityNumber" type="number" id="activityNumber" max="24">
+									<label for="activityNumber">Hour of activity :</label>
+									<input name="activityNumber" type="number" id="activityNumber" max="24" class="form-control">
+
+								</fieldset>
+
+								<label for="estimatedElevatorToDeploy">Estimated number of elevators cage :</label>
+								<input name="estimatedElevatorToDeploy" type="number" id="estimatedElevatorToDeploy" readonly>
 
 							</fieldset>
 							
-							<label for="estimatedElevatorToDeploy">Estimated number of elevators cage :</label>
-							<input name="estimatedElevatorToDeploy" type="number" id="estimatedElevatorToDeploy" readonly>
+							<fieldset class="col-md-6">
+								<legend>Price</legend>
+                                <label for="elevatorType">Elevator type</label>
+								<input type="radio" name="elevatorType" value="standard" checked class="form-check-input">Standart<br>
+								<input type="radio" name="elevatorType" value="premium">Premium <br>
+								<input type="radio" name="elevatorType" value="excelium">Excelium<br>
 
-							<div class="row">
-								<div class="col-md-12">
-									<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND FORM</button>
-								</div>
-							</div>
+								<label for="elevatorsPrice">Elevators Price :</label>
+								<input name="elevatorsPrice" type="text" id="elevatorsPrice" class="form-control" readonly>
+
+								<label for="installationPrice">Installation Price :</label>
+								<input name="installationPrice" type="text" id="installationPrice" class="form-control" readonly>
+
+								<hr>
+
+								<label for="totalPrice">Total Price :</label>
+								<input name="totalPrice" type="text" id="totalPrice" class="form-control" readonly>
+							</fieldset>
+
+
+							<button type="submit" class="btn btn-primary col-md-12"><i class="fa fa-check"></i> COMMAND</button>
+						
 						</form>
 
 					</div>

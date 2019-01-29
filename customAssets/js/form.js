@@ -1,12 +1,12 @@
-var selectElem = document.getElementById('buildingType');
-
 $("#residential").show();
 $("#commercial").hide();
 $("#corporative").hide();
 $("#hybrid").hide();
 
-selectElem.addEventListener('change', function() {
-    var index = selectElem.selectedIndex;
+price();
+
+$("#buildingType").change(function() {
+    var index = this.selectedIndex;
     if (index === 0)
     {
         // Show Residential
@@ -39,22 +39,30 @@ selectElem.addEventListener('change', function() {
         $("#corporative").hide();
         $("#hybrid").show();
     }
-})
+});
 
 $("#residential input").change(function() {
     residential();
+    price();
 });
 
 $("#commercial input").change(function() {
     commercial();
+    price();
 });
 
 $("#corporative input").change(function() {
     corporative();
+    price();
 });
 
 $("#hybrid input").change(function() {
     hybrid();
+    price();
+});
+
+$("input[type=radio][name=elevatorType]").change(function() {
+    price();
 });
 
 function residential()
@@ -63,7 +71,7 @@ function residential()
     var floorNumber = $("#residential #floorNumber").val();
 
     // Combien d'appartements par étage en moyenne
-    var moyenneDeAppartementParEtage = appartementNumber / floorNumber;
+    var moyenneDeAppartementParEtage = Math.ceil(appartementNumber / floorNumber);
 
     // Tout les 6 appartements : 1 cage d'ascenceur
     var elevatorToDeployNumber = Math.ceil(moyenneDeAppartementParEtage / 6);
@@ -83,19 +91,6 @@ function commercial()
     var elevatorToDeployNumber = $("#commercial #elevatorToDeployNumber").val();
     $("#estimatedElevatorToDeploy").val(elevatorToDeployNumber);
 }
-
- /* Si le type d’immeuble est Corporatif ou Hybride, on multiplie le nombre d’occupants maximum par étage par 
-    le nombre d’étages (incluant le nombre de sous-sols) pour obtenir le nombre d’occupants total.
-    Le nombre d'ascenseurs requis est déterminé par le nombre d’occupants divisé par 1000.  
-    On divise le nombre d’étages (incluant le nombre de sous-sols) par 20 pour obtenir le nombre de colonnes 
-    d'ascenseurs requises. Le nombre total d'ascenseurs est déterminé par le nombre de cages d'ascenseurs 
-    multiplié par le nombre de colonnes.
-            occupantNumber * (floorNumber + basementNumber) = occupantNumber
-            elevatorToDeply =  occupantNumber / 1000
-            (floorNumber + basementNumber) /20 = requiredColumn 
-            estimatedElevatorToDeploy = elevatorToDeploy * RequiredColumn
-
-    */
 
 function corporative()
 {
@@ -137,4 +132,34 @@ function hybrid()
     var estimatedElevatorToDeploy = elevatorToDeployNumber * requiredColumn
 
     $("#estimatedElevatorToDeploy").val(estimatedElevatorToDeploy);
+}
+
+function price()
+{
+    var estimatedElevatorToDeploy = $("#estimatedElevatorToDeploy").val();
+    var elevatorType = $('input[name=elevatorType]:checked').val();
+
+    if (elevatorType === "standard")
+    {
+        var unitPrice = 7565;
+        var installationPercent = 10;
+    }
+    else if (elevatorType === "premium")
+    {
+        var unitPrice = 12345;
+        var installationPercent = 13;
+    }
+    else if (elevatorType === "excelium")
+    {
+        var unitPrice = 15400;
+        var installationPercent = 16;
+    }
+
+    var elevatorPrice = unitPrice * estimatedElevatorToDeploy;
+    var installationPrice = (elevatorPrice * installationPercent) / 100;
+    var totalPrice = elevatorPrice + installationPrice;
+
+    $("#elevatorsPrice").val(elevatorPrice.toFixed(2) + ' $');
+    $("#installationPrice").val(installationPrice.toFixed(2) + ' $');
+    $("#totalPrice").val(totalPrice.toFixed(2) + ' $');
 }
