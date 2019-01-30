@@ -71,10 +71,10 @@ function residential()
     var floorNumber = $("#residential #floorNumber").val();
 
     // Combien d'appartements par étage en moyenne
-    var moyenneDeAppartementParEtage = Math.ceil(appartementNumber / floorNumber);
+    var averageAppartementPerFloor = Math.ceil(appartementNumber / floorNumber);
 
     // Tout les 6 appartements : 1 cage d'ascenceur
-    var elevatorToDeployNumber = Math.ceil(moyenneDeAppartementParEtage / 6);
+    var elevatorToDeployNumber = Math.ceil(averageAppartementPerFloor / 6);
 
     // Si il y'a plus de 20 étages, doubler le nombre de cage d'ascenceur
     if (floorNumber > 20)
@@ -105,17 +105,19 @@ function corporative()
     var basementNumber =$("#corporative #basementNumber").val();
 
     // On multiplie le nombre d’occupants maximum par étage par le nombre d’étages (incluant le nombre de sous-sols) pour obtenir le nombre d’occupants total.
-    var occupantNumberTotal = (basementNumber + floorNumber) * occupantNumber
+    var occupantNumberTotal = (parseInt(basementNumber) + parseInt(floorNumber)) * occupantNumber
 
     // Le nombre d'ascenseurs requis est déterminé par le nombre d’occupants divisé par 1000.
     var elevatorToDeployNumber = Math.ceil (occupantNumberTotal / 1000)
 
     // On divise le nombre d’étages (incluant le nombre de sous-sols) par 20 pour obtenir le nombre de colonnes
-    var requiredColumn = Math.ceil ((basementNumber + floorNumber) / 20)
+    var requiredColumn = Math.ceil ((parseInt(basementNumber) + parseInt(floorNumber)) / 20)
 
     // Le nombre d'ascenseurs requis est déterminé par le nombre d'ascenseurs *DIVISÉ* par le nombre de colonnes. 
-    var estimatedElevatorToDeploy = Math.ceil (elevatorToDeployNumber / requiredColumn)
+    var something = Math.ceil (elevatorToDeployNumber / requiredColumn)
+    var estimatedElevatorToDeploy = requiredColumn * something
 
+    
     $("#estimatedElevatorToDeploy").val(estimatedElevatorToDeploy);
 }
 
@@ -126,16 +128,19 @@ function hybrid()
     var basementNumber =$("#hybrid #basementNumber").val();
 
     // On multiplie le nombre d’occupants maximum par étage par le nombre d’étages (incluant le nombre de sous-sols) pour obtenir le nombre d’occupants total.
-    var occupantNumberTotal = (basementNumber + floorNumber) * occupantNumber
-
+    var occupantNumberTotal = (parseInt(basementNumber) + parseInt(floorNumber)) * occupantNumber
+    console.log(occupantNumberTotal);
     // Le nombre d'ascenseurs requis est déterminé par le nombre d’occupants divisé par 1000.
     var elevatorToDeployNumber = Math.ceil (occupantNumberTotal / 1000)
 
     // On divise le nombre d’étages (incluant le nombre de sous-sols) par 20 pour obtenir le nombre de colonnes
-    var requiredColumn = Math.ceil ((basementNumber + floorNumber) / 20)
+    var requiredColumn = Math.ceil ((parseInt(basementNumber) + parseInt(floorNumber)) / 20)
 
     // Le nombre d'ascenseurs requis est déterminé par le nombre d'ascenseurs *DIVISÉ* par le nombre de colonnes. 
-    var estimatedElevatorToDeploy = Math.ceil (elevatorToDeployNumber / requiredColumn)
+    var something = Math.ceil (elevatorToDeployNumber / requiredColumn)
+    console.log(requiredColumn);
+    var estimatedElevatorToDeploy = requiredColumn * something
+    console.log(requiredColumn);
 
     $("#estimatedElevatorToDeploy").val(estimatedElevatorToDeploy);
 }
