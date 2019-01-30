@@ -113,7 +113,7 @@ function corporative()
     // On divise le nombre d’étages (incluant le nombre de sous-sols) par 20 pour obtenir le nombre de colonnes
     var requiredColumn = Math.ceil ((basementNumber + floorNumber) / 20)
 
-    //Le nombre total d'ascenseurs est déterminé par le nombre de cages d'ascenseurs multiplié par le nombre de colonnes.
+    // Le nombre d'ascenseurs requis est déterminé par le nombre d'ascenseurs *DIVISÉ* par le nombre de colonnes. 
     var estimatedElevatorToDeploy = Math.ceil (elevatorToDeployNumber / requiredColumn)
 
     $("#estimatedElevatorToDeploy").val(estimatedElevatorToDeploy);
@@ -134,7 +134,7 @@ function hybrid()
     // On divise le nombre d’étages (incluant le nombre de sous-sols) par 20 pour obtenir le nombre de colonnes
     var requiredColumn = Math.ceil ((basementNumber + floorNumber) / 20)
 
-    //Le nombre total d'ascenseurs est déterminé par le nombre de cages d'ascenseurs multiplié par le nombre de colonnes.
+    // Le nombre d'ascenseurs requis est déterminé par le nombre d'ascenseurs *DIVISÉ* par le nombre de colonnes. 
     var estimatedElevatorToDeploy = Math.ceil (elevatorToDeployNumber / requiredColumn)
 
     $("#estimatedElevatorToDeploy").val(estimatedElevatorToDeploy);
