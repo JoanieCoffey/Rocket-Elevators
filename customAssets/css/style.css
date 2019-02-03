@@ -1,3 +1,4 @@
+/* BUTTON */
 .btn-customBlue { 
     color: #FFFFFF; 
     background-color: #0B64A0; 
@@ -49,12 +50,12 @@
     margin: 15px 0;
   }
 
+  /* FONTS */
+  @font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+  }
 
-  @font-face 
-  {
-    font-family: 'Roboto', sans-serif;
-    src: url('Roboto.eot') format('eot'),
-         url('Roboto.woff') format('woff'),
-         url('Roboto.ttf') format('truetype'),
-         url('Roboto.svg') format('svg');
+  body {
+    font-family: 'Roboto-Regular', Arial, Helvetica, sans-serif !important;
   }
