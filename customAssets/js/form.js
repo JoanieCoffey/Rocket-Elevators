@@ -3,7 +3,7 @@ $("#commercial").hide();
 $("#corporative").hide();
 $("#hybrid").hide();
 
-price();
+clear();
 
 $("#buildingType").change(function() {
     var index = this.selectedIndex;
@@ -14,6 +14,7 @@ $("#buildingType").change(function() {
         $("#commercial").hide();
         $("#corporative").hide();
         $("#hybrid").hide();
+        clear();
     }
     else if (index === 1)
     {
@@ -22,6 +23,7 @@ $("#buildingType").change(function() {
         $("#commercial").show();
         $("#corporative").hide();
         $("#hybrid").hide();
+        clear();
     }
     else if (index === 2)
     {
@@ -30,6 +32,7 @@ $("#buildingType").change(function() {
         $("#commercial").hide();
         $("#corporative").show();
         $("#hybrid").hide();
+        clear();
     }
     else if (index === 3)
     {
@@ -38,25 +41,26 @@ $("#buildingType").change(function() {
         $("#commercial").hide();
         $("#corporative").hide();
         $("#hybrid").show();
+        clear();
     }
 });
 
-$("#residential input").change(function() {
+$("#residential input").on('input', function() {
     residential();
     price();
 });
 
-$("#commercial input").change(function() {
+$("#commercial input").on('input', function() {
     commercial();
     price();
 });
 
-$("#corporative input").change(function() {
+$("#corporative input").on('input', function() {
     corporative();
     price();
 });
 
-$("#hybrid input").change(function() {
+$("#hybrid input").on('input', function() {
     hybrid();
     price();
 });
@@ -92,17 +96,11 @@ function commercial()
     $("#estimatedElevatorToDeploy").val(elevatorToDeployNumber);
 }
 
-    //  		occupantNumber * (floorNumber + basementNumber) = occupantNumberTotal
-    //          estimatedElevatorToDeply =  occupantNumberTotal / 1000
-    //          (floorNumber + basementNumber) /20 = requiredColum 
-    //            estimatedElevatorToDeploy = elevatorToDeploy / RequiredColum
-
-
 function corporative()
 {
     var occupantNumber = $("#corporative #occupantNumber").val();
     var floorNumber = $("#corporative #floorNumber").val();
-    var basementNumber =$("#corporative #basementNumber").val();
+    var basementNumber = $("#corporative #basementNumber").val();
 
     // On multiplie le nombre d’occupants maximum par étage par le nombre d’étages (incluant le nombre de sous-sols) pour obtenir le nombre d’occupants total.
     var occupantNumberTotal = (parseInt(basementNumber) + parseInt(floorNumber)) * occupantNumber
@@ -114,9 +112,7 @@ function corporative()
     var requiredColumn = Math.ceil ((parseInt(basementNumber) + parseInt(floorNumber)) / 20)
 
     // Le nombre d'ascenseurs requis est déterminé par le nombre d'ascenseurs *DIVISÉ* par le nombre de colonnes. 
-    var something = Math.ceil (elevatorToDeployNumber / requiredColumn)
-    var estimatedElevatorToDeploy = requiredColumn * something
-
+    var estimatedElevatorToDeploy = requiredColumn * Math.ceil(elevatorToDeployNumber / requiredColumn)
     
     $("#estimatedElevatorToDeploy").val(estimatedElevatorToDeploy);
 }
@@ -129,7 +125,6 @@ function hybrid()
 
     // On multiplie le nombre d’occupants maximum par étage par le nombre d’étages (incluant le nombre de sous-sols) pour obtenir le nombre d’occupants total.
     var occupantNumberTotal = (parseInt(basementNumber) + parseInt(floorNumber)) * occupantNumber
-    console.log(occupantNumberTotal);
     // Le nombre d'ascenseurs requis est déterminé par le nombre d’occupants divisé par 1000.
     var elevatorToDeployNumber = Math.ceil (occupantNumberTotal / 1000)
 
@@ -138,9 +133,7 @@ function hybrid()
 
     // Le nombre d'ascenseurs requis est déterminé par le nombre d'ascenseurs *DIVISÉ* par le nombre de colonnes. 
     var something = Math.ceil (elevatorToDeployNumber / requiredColumn)
-    console.log(requiredColumn);
     var estimatedElevatorToDeploy = requiredColumn * something
-    console.log(requiredColumn);
 
     $("#estimatedElevatorToDeploy").val(estimatedElevatorToDeploy);
 }
@@ -173,4 +166,17 @@ function price()
     $("#elevatorsPrice").val(elevatorPrice.toFixed(2) + ' $');
     $("#installationPrice").val(installationPrice.toFixed(2) + ' $');
     $("#totalPrice").val(totalPrice.toFixed(2) + ' $');
+}
+
+function clear()
+{
+    $("#residential input").val('');
+    $("#commercial input").val('');
+    $("#corporative input").val('');
+    $("#hybrid input").val('');
+
+    $("#estimatedElevatorToDeploy").val('');
+    $("#elevatorsPrice").val('0.00 $');
+    $("#installationPrice").val('0.00 $');
+    $("#totalPrice").val('0.00 $');
 }
